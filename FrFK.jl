@@ -76,10 +76,13 @@ end
 md"
 October 9
 
-Status: Kravchuk matrix complete
+Status: Kravchuk matrix completed
 
-Next: Write the fractional evolution
+Next: Write the fractional evolution, and plotting the results
 "
+
+# ╔═╡ a20c8740-09f2-11eb-2cab-37b390bc462e
+
 
 # ╔═╡ Cell order:
 # ╠═eb325bf2-09e3-11eb-3b88-9b0d15626515
@@ -96,3 +99,4 @@ Next: Write the fractional evolution
 # ╠═fed998ce-09ec-11eb-2a73-4f900ef78a80
 # ╠═a0b83938-09f0-11eb-0a74-fda27008fe24
 # ╟─33089668-09ed-11eb-30db-8f33d969a115
+# ╠═a20c8740-09f2-11eb-2cab-37b390bc462e
