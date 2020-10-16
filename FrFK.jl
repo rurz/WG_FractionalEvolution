@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.12.3
+# v0.12.4
 
 using Markdown
 using InteractiveUtils
@@ -27,9 +27,7 @@ md" Define the parameter"
 begin
 	N = 32
 	dim = N+1
-	p = 1/2
-
-	t_list = range(0,stop=61,length=61)
+	const p = 1/2
 end
 
 # ╔═╡ 839db44e-09ec-11eb-33e3-01af1f76d1b8
@@ -72,11 +70,57 @@ begin
 	fig = figure(figsize=(5,5))
 	ax = gca()
 	ax.imshow(KT, cmap="gray")
-	title("Kravchuk Matrix (The trilobite)")
+	title(L"\textbf{Kravchuk Matrix}\; K(i,j)\; \textbf{(The trilobite)}")
+	ax.set_xlabel(L"\textbf{Pseudo Energy Level:}\; 0\leq i\leq N")
+	ax.set_ylabel(L"\textbf{Position Index:}\; 0\leq j\leq N")
+	ax.tick_params(direction="out",length=5,width=2,labelsize=10)
+	ax.set_xticks(0:8:N, minor = false)
+	ax.set_yticks(0:8:N, minor = false)
 	tight_layout()
-	show()
 	#savefig("img.pdf",dpi=300,transparent=true)
 end
+
+# ╔═╡ 4dd56d14-0f64-11eb-03d3-ef32481e399b
+begin
+	fig2 = figure(figsize=(5,5))
+	ax2 = gca()
+	ax2.imshow(KT, cmap="gray")
+	title(L"\textbf{Kravchuk Matrix}\; K(i,j)\; \textbf{(The trilobite)}")
+	ax2.set_xlabel(L"\textbf{Pseudo Energy Level:}\; 0\leq i\leq N")
+	ax2.set_ylabel(L"\textbf{Position Index:}\; 0\leq j\leq N")
+	ax2.tick_params(direction="out",length=5,width=2,labelsize=10)
+	ax2.set_xticks(0:8:N, minor = false)
+	ax2.set_yticks(0:8:N, minor = false)
+	
+	axins1 = ax2.inset_axes([0, 0.8, 0.2, 0.2])
+	axins1.plot(KT[1,:],"k:",linewidth=1)
+	axins1.set_xticklabels("")
+	axins1.set_yticklabels("")
+	axins1.text(7.5,0.01,L"K(0,j)",fontsize=9)
+	
+	axins2 = ax2.inset_axes([0.8, 0, 0.2, 0.2])
+	axins2.plot(KT[N+1,:],"k:",linewidth=1)
+	axins2.set_xticklabels("")
+	axins2.set_yticklabels("")
+	axins2.text(15,-0.35,L"K(N,j)",fontsize=9)
+	
+	tight_layout()
+	#savefig("trilo.png",dpi=300,transparent=true)
+end
+
+# ╔═╡ 74a12d8e-0f69-11eb-0650-e79c06fd1080
+md"Kravchuk matrix is defined as
+
+$K(i,j)=\sqrt{\frac{\omega(j)}{h(i)}}k(i,j),$
+with the functions $\omega$ and $h$ given by
+
+$\omega(j)=\binom{N}{j}p^{j}(1-p)^{N-j},\quad h(i)=\frac{\frac{1-p}{p^{i}}}{\binom{N}{i}},$
+and the Kravchuk polynomials obtained by the Hypergeometrical function
+
+$k(i,j)=~_{2}F_{1}(-j,-i,-N,1/p).$
+
+Note: When $p=1/2$, the symmetric Kravchuk polynomials are obtained, henceforth, the symmetric Kravchuk functions follows.
+"
 
 # ╔═╡ 33089668-09ed-11eb-30db-8f33d969a115
 md"
@@ -90,7 +134,7 @@ Next: Write the fractional evolution, and plotting the results
 # ╔═╡ Cell order:
 # ╠═eb325bf2-09e3-11eb-3b88-9b0d15626515
 # ╠═4b51367c-09ec-11eb-16d9-3dcd2910078e
-# ╟─54542a04-09ec-11eb-1ba0-3b5eb440ac46
+# ╠═54542a04-09ec-11eb-1ba0-3b5eb440ac46
 # ╠═7f8aad74-09ec-11eb-3c25-a538f18da2f9
 # ╟─c28078de-09ec-11eb-0c25-a1bd3c7cdd8b
 # ╠═cb9e6110-09ec-11eb-29bb-b33f49eb026a
@@ -101,4 +145,6 @@ Next: Write the fractional evolution, and plotting the results
 # ╠═f7b116c6-09ec-11eb-2b95-61db2b1a7196
 # ╠═fed998ce-09ec-11eb-2a73-4f900ef78a80
 # ╠═a0b83938-09f0-11eb-0a74-fda27008fe24
+# ╠═4dd56d14-0f64-11eb-03d3-ef32481e399b
+# ╟─74a12d8e-0f69-11eb-0650-e79c06fd1080
 # ╟─33089668-09ed-11eb-30db-8f33d969a115
