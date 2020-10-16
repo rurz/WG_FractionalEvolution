@@ -21,14 +21,14 @@ mp = pyimport("mpmath")
 rc("text", usetex=true)
 
 # ╔═╡ c28078de-09ec-11eb-0c25-a1bd3c7cdd8b
-md" Define the parameter"
+md" Define the parameters"
 
 # ╔═╡ cb9e6110-09ec-11eb-29bb-b33f49eb026a
 begin
 	N = 32
 	dim = N+1
 	const p = 1/2
-end
+end;
 
 # ╔═╡ 839db44e-09ec-11eb-33e3-01af1f76d1b8
 function nbinom(n,k); # Binomial coefficient in terms of the Gamma function
@@ -63,21 +63,6 @@ begin
         	KT[l+1,m+1] = K(l,m)
     	end
 	end
-end
-
-# ╔═╡ a0b83938-09f0-11eb-0a74-fda27008fe24
-begin
-	fig = figure(figsize=(5,5))
-	ax = gca()
-	ax.imshow(KT, cmap="gray")
-	title(L"\textbf{Kravchuk Matrix}\; K(i,j)\; \textbf{(The trilobite)}")
-	ax.set_xlabel(L"\textbf{Pseudo Energy Level:}\; 0\leq i\leq N")
-	ax.set_ylabel(L"\textbf{Position Index:}\; 0\leq j\leq N")
-	ax.tick_params(direction="out",length=5,width=2,labelsize=10)
-	ax.set_xticks(0:8:N, minor = false)
-	ax.set_yticks(0:8:N, minor = false)
-	tight_layout()
-	#savefig("img.pdf",dpi=300,transparent=true)
 end
 
 # ╔═╡ 4dd56d14-0f64-11eb-03d3-ef32481e399b
@@ -134,7 +119,7 @@ Next: Write the fractional evolution, and plotting the results
 # ╔═╡ Cell order:
 # ╠═eb325bf2-09e3-11eb-3b88-9b0d15626515
 # ╠═4b51367c-09ec-11eb-16d9-3dcd2910078e
-# ╠═54542a04-09ec-11eb-1ba0-3b5eb440ac46
+# ╟─54542a04-09ec-11eb-1ba0-3b5eb440ac46
 # ╠═7f8aad74-09ec-11eb-3c25-a538f18da2f9
 # ╟─c28078de-09ec-11eb-0c25-a1bd3c7cdd8b
 # ╠═cb9e6110-09ec-11eb-29bb-b33f49eb026a
@@ -144,7 +129,6 @@ Next: Write the fractional evolution, and plotting the results
 # ╠═f2629280-09ec-11eb-34b9-61a08407e9c7
 # ╠═f7b116c6-09ec-11eb-2b95-61db2b1a7196
 # ╠═fed998ce-09ec-11eb-2a73-4f900ef78a80
-# ╠═a0b83938-09f0-11eb-0a74-fda27008fe24
 # ╠═4dd56d14-0f64-11eb-03d3-ef32481e399b
 # ╟─74a12d8e-0f69-11eb-0650-e79c06fd1080
 # ╟─33089668-09ed-11eb-30db-8f33d969a115
