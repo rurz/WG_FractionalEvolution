@@ -82,7 +82,7 @@ begin
 end
 
 # ╔═╡ 4692817e-0fe9-11eb-22e0-dfdab6509141
-begin	
+begin
 	fig1 = figure(figsize=(5,5))
 	ax1 = gca()
 	ax1.imshow(KTs, cmap="gray")
@@ -106,7 +106,7 @@ begin
 	axins2a.text(15,-0.35,L"K(N,j)",fontsize=9)
 	
 	tight_layout()
-	savefig("trilo.png",dpi=300,transparent=true)
+	#savefig("trilo.png",dpi=300,transparent=true)
 end
 
 # ╔═╡ 33089668-09ed-11eb-30db-8f33d969a115
