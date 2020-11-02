@@ -81,6 +81,9 @@ begin
 	end
 end
 
+# ╔═╡ 2d3c6694-18be-11eb-3a6e-17053f1f1802
+imshow(KTs)
+
 # ╔═╡ 4692817e-0fe9-11eb-22e0-dfdab6509141
 begin
 	fig1 = figure(figsize=(5,5))
@@ -131,5 +134,6 @@ Next: Write the fractional evolution, and plotting the results
 # ╠═590a100a-0fe7-11eb-017c-4d4ff299ed8a
 # ╠═a5f2bf3c-0fe7-11eb-3377-8d5228bb6476
 # ╠═d01de678-0fe8-11eb-2831-89f652e45a9a
+# ╠═2d3c6694-18be-11eb-3a6e-17053f1f1802
 # ╠═4692817e-0fe9-11eb-22e0-dfdab6509141
 # ╟─33089668-09ed-11eb-30db-8f33d969a115
