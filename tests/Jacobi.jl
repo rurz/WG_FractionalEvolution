@@ -80,6 +80,9 @@ begin
 	savefig("JHypM.png",dpi=150)
 end
 
+# ╔═╡ 0808796e-2b9a-11eb-28bb-898219baca42
+md"![](https://raw.githubusercontent.com/rurz/WG_FractionalEvolution/main/tests/JHypM.png)"
+
 # ╔═╡ 47fcb3dc-2b66-11eb-0322-7160add87fd2
 md"When we plot the matrix array, we see that only the upper left half of the values are obtained. Meaning that the method provided by `HypergeometricFunctions.jl` lacks on rules of parity, simmetry, and reflection. Examining the matrix we encounter NaN results, so we faced a problem of ill-defined numerical method when we don't fullfill the condition $\alpha,\beta>-1.$"
 
@@ -122,6 +125,9 @@ begin
 	imshow(JSPFM,cmap="gray")
 	savefig("JSPFM.png",dpi=150)
 end
+
+# ╔═╡ f17428a6-2b99-11eb-2e6f-73737235bc48
+md"![](https://raw.githubusercontent.com/rurz/WG_FractionalEvolution/main/tests/JSPFM.png)"
 
 # ╔═╡ 3813f4e0-2b94-11eb-3387-cf14cad21276
 md"
@@ -168,6 +174,9 @@ begin
 	savefig("JSerFM.png",dpi=150)
 end
 
+# ╔═╡ 824608be-2b99-11eb-3b4e-1752fd403812
+md"![K](https://raw.githubusercontent.com/rurz/WG_FractionalEvolution/main/tests/JSerFM.png)"
+
 # ╔═╡ 4fc55ac4-2b68-11eb-124e-675dece08b7c
 md"This time, we obtain the matrix in complete form. Since this approach use a series representation, we have not problems dealing with symmetries and reflection changes. We then have a nicely numerical way to obtain the matrix. The cons are that we need to construct the series and stored in a function `JSer`, who need to be evaluated every time whe change the value of $j\in Z^{+}$."
 
@@ -193,6 +202,7 @@ Alejandro R. Urzúa (2020)
 # ╠═63b06a18-2b65-11eb-02b4-0147f09abdfd
 # ╠═9946f82c-2b65-11eb-1472-2355273a3f18
 # ╠═d8159ab8-2b65-11eb-3fb0-674f6f8d069b
+# ╟─0808796e-2b9a-11eb-28bb-898219baca42
 # ╟─47fcb3dc-2b66-11eb-0322-7160add87fd2
 # ╟─4c6ceec6-2b88-11eb-36f8-f3992615474f
 # ╠═5dc79c5c-2b88-11eb-240c-8bc0041210f6
@@ -200,12 +210,14 @@ Alejandro R. Urzúa (2020)
 # ╠═07566168-2b8b-11eb-1067-b3327e8c3c06
 # ╠═1f9a2ca8-2b8b-11eb-14a5-7f83166acde4
 # ╠═80b72b96-2b8e-11eb-3150-6f7795a2d027
+# ╟─f17428a6-2b99-11eb-2e6f-73737235bc48
 # ╟─3813f4e0-2b94-11eb-3387-cf14cad21276
 # ╟─d9e0a670-2b66-11eb-3181-e3a029a778cb
 # ╠═980b12e2-2960-11eb-220a-7786e56f2261
 # ╠═f2509478-2566-11eb-2aa0-0be2f2b03b3f
 # ╠═49243b96-2955-11eb-1d0e-a3f83590722e
 # ╠═9b37f096-2962-11eb-0512-b702db069ddf
+# ╟─824608be-2b99-11eb-3b4e-1752fd403812
 # ╟─4fc55ac4-2b68-11eb-124e-675dece08b7c
 # ╟─0045571e-2b69-11eb-18fa-9bb5003e3968
 # ╟─de05e088-2b68-11eb-274c-b9be94d7f0a7
