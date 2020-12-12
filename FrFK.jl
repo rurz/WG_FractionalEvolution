@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.12.11
+# v0.12.16
 
 using Markdown
 using InteractiveUtils
@@ -119,7 +119,7 @@ Next: Write the fractional evolution, and plotting the results
 "
 
 # ╔═╡ Cell order:
-# ╠═eb325bf2-09e3-11eb-3b88-9b0d15626515
+# ╟─eb325bf2-09e3-11eb-3b88-9b0d15626515
 # ╟─74a12d8e-0f69-11eb-0650-e79c06fd1080
 # ╠═4b51367c-09ec-11eb-16d9-3dcd2910078e
 # ╠═7f8aad74-09ec-11eb-3c25-a538f18da2f9
