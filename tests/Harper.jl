@@ -47,7 +47,7 @@ end;
 function Δ2()
 	Δ2 = zeros(Float64,dim)
 	for i in -j:j
-		Δ2[i + 1 + j] = -4 * sin(pi * i / (2 * j))^2
+		Δ2[i + 1 + j] = -4 * (sin(pi * i / N))^2
 	end
 	return Δ2 = LinearAlgebra.diagm(Δ2)
 end
@@ -67,10 +67,13 @@ h = LinearAlgebra.eigvecs(H);
 
 k = LinearAlgebra.eigvals(H);
 
+# ╔═╡ 80445288-3e76-11eb-0e96-0bef8c278a79
+η= [l for l in 0:N]; # Imported symmetry. Real eigenvalues replaced by linear number spectrum
+
 # ╔═╡ 1fe9fce6-3ce6-11eb-2073-ad386eec723e
 # Green matrix propagator 
 
-G(m,μ,t) = sum([h[m + j + 1, l + 1] * exp(-1im * t * k[l + 1]) * h[μ + j + 1, l + 1] for l in 0:N]);
+G(m,μ,t) = sum([h[m + j + 1, l + 1] * exp(-1im * pi * t * η[l + 1]/2.0) * h[μ + j + 1, l + 1] for l in 0:N]);
 
 # ╔═╡ 9632d7ea-3cfa-11eb-26c1-1910c42de58b
 P(t) = reshape([G(m,μ,t) for m in -j:j for μ in -j:j], (dim, dim))
@@ -92,11 +95,20 @@ begin
 	eigh(n) = h[:,n]
 end;
 
+# ╔═╡ 4446e684-3f5b-11eb-2ed3-0dd74b1e2ec9
+function hdc(d)
+	ne = zeros(Float64,dim)
+	for l in 1:dim-d
+		ne[l] = h[l+d,1]
+	end
+	return ne
+end
+
 # ╔═╡ 52a41998-3d00-11eb-18fb-4f3336cc36f2
 α = range(0, stop = 2, length = 315);
 
 # ╔═╡ e6398104-3d03-11eb-0030-a3580b5fcf94
-evol(θ) = abs2.(P(α[θ]) * normalize(eigh(1)));
+evol(θ) = abs2.(P(α[θ]) * normalize(hdc(8)));
 
 # ╔═╡ bacd0730-3d04-11eb-394f-f12bfbb73b55
 evolT = [evol(l) for l in 1:315];
@@ -115,14 +127,11 @@ end
 begin
 	fig1 = figure(figsize = (10,5))
 	ax1 = gca()
-	ax1.imshow(Ankara)
+	ax1.imshow(Ankara, cmap = "hot")
 	ax1.set_aspect("auto")
 	
 	tight_layout()
 end
-
-# ╔═╡ b8031ec4-3d07-11eb-36cb-1174a70b9bba
-md"Mmmm, it is not what I was expected to look like. Damn!"
 
 # ╔═╡ Cell order:
 # ╟─9600ef3e-3d07-11eb-3ebf-810a3b29cfd7
@@ -134,13 +143,14 @@ md"Mmmm, it is not what I was expected to look like. Damn!"
 # ╠═da00b368-2af1-11eb-3111-a1bde1b4f2dd
 # ╠═0e0bcffa-2af2-11eb-173b-b50a251e6015
 # ╠═093f752a-3ce6-11eb-37a8-9502448cb5f5
+# ╠═80445288-3e76-11eb-0e96-0bef8c278a79
 # ╠═1fe9fce6-3ce6-11eb-2073-ad386eec723e
 # ╠═9632d7ea-3cfa-11eb-26c1-1910c42de58b
 # ╠═051a0a20-3cfb-11eb-2f0c-51d2a26c6158
 # ╠═b2e3b8e6-3cff-11eb-190b-b96e32278be5
+# ╠═4446e684-3f5b-11eb-2ed3-0dd74b1e2ec9
 # ╠═52a41998-3d00-11eb-18fb-4f3336cc36f2
 # ╠═e6398104-3d03-11eb-0030-a3580b5fcf94
 # ╠═bacd0730-3d04-11eb-394f-f12bfbb73b55
 # ╠═72edde46-3d05-11eb-0d98-472ce0d9a01f
 # ╠═ca90feee-3d05-11eb-352b-bd6efaf7d6fb
-# ╟─b8031ec4-3d07-11eb-36cb-1174a70b9bba

@@ -72,7 +72,7 @@ begin
 end
 
 # ╔═╡ aa913f54-3c34-11eb-267a-6dc645a56600
-vK = transpose(K) * normalize(disK(-12) + disK(12)); # Transformation of the initial condition to the Kravchuk space
+vK = transpose(K) * normalize(disK(8)); # Transformation of the initial condition to the Kravchuk space
 
 # ╔═╡ 35f1846c-3c2d-11eb-20fa-7954ca2d82a9
 vFrT(α) = K * dia(α) * vK; # Propagation function in Kravchuk space and returning to configuration space
@@ -95,7 +95,7 @@ end
 begin
 	fig1 = figure(figsize = (10,5))
 	ax1 = gca()
-	ax1.imshow(FK)
+	ax1.imshow(FK, cmap = "hot")
 	ax1.set_aspect("auto")
 	
 	tight_layout()
