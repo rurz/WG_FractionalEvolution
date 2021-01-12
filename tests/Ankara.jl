@@ -80,11 +80,11 @@ for l in 1:dim
 	end
 end
 
-begin
-	fig1 = figure(figsize = (10,5))
-	ax1 = gca()
-	ax1.imshow(Ankara, cmap = "hot")
-	ax1.set_aspect("auto")
-
-	tight_layout()
-end
+#begin
+#	fig1 = figure(figsize = (10,5))
+#	ax1 = gca()
+#	ax1.imshow(Ankara, cmap = "hot")
+#	ax1.set_aspect("auto")
+#
+#	tight_layout()
+#end
